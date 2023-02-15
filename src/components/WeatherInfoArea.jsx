@@ -1,8 +1,6 @@
 import React from "react";
 
 export default function WeatherInfoArea(props) {
-//   const [weather, setWeather] = useState("");
-
   return (
     <div
       style={{

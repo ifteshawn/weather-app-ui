@@ -1,8 +1,7 @@
-import React from "react";
+import { React, useState } from "react";
 import Card from "@mui/material/Card";
 import { CardContent } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { useState } from "react";
 import WeatherInfoArea from "./WeatherInfoArea";
 import SearchArea from "./SearchArea";
 
@@ -30,14 +29,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ContainerCard() {
   const classes = useStyles();
-  const [weather, setWeather] = useState("");
+  const [weather, setWeather] = useState(null);
 
   const baseUrl =
     "https://localhost:7061/api/WeatherInformation/getWeatherInfo/";
 
   function search(city) {
-    // const city = document.getElementById("cityName").value;
-
     fetch(
       `${baseUrl}${city}`
       // , {
@@ -69,12 +66,14 @@ export default function ContainerCard() {
         <CardContent
           style={{ display: "flex", justifyContent: "space-evenly" }}
         >
-          <WeatherInfoArea
-            imgSrc={weather.iconSrc}
-            temp={weather.temp}
-            description={weather.description}
-            city={weather.city}
-          />
+          {weather !== null && (
+            <WeatherInfoArea
+              imgSrc={weather.iconSrc}
+              temp={weather.temp}
+              description={weather.description}
+              city={weather.city}
+            />
+          )}
           <SearchArea onSearch={search} />
         </CardContent>
       </Card>
