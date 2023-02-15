@@ -3,6 +3,8 @@ import Card from "@mui/material/Card";
 import { CardContent } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useState } from "react";
+import WeatherInfoArea from "./WeatherInfoArea";
+import SearchArea from "./SearchArea";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,8 +35,8 @@ export default function ContainerCard() {
   const baseUrl =
     "https://localhost:7061/api/WeatherInformation/getWeatherInfo/";
 
-  function handleSearch() {
-    const city = document.getElementById("cityName").value;
+  function search(city) {
+    // const city = document.getElementById("cityName").value;
 
     fetch(
       `${baseUrl}${city}`
@@ -54,7 +56,6 @@ export default function ContainerCard() {
           iconSrc:
             "http://openweathermap.org/img/wn/" + `${data.icon}` + "@2x.png",
         };
-        // console.log(weather);
         setWeather(weather);
       })
       .catch((e) => {
@@ -68,43 +69,13 @@ export default function ContainerCard() {
         <CardContent
           style={{ display: "flex", justifyContent: "space-evenly" }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <img src={weather.iconSrc} alt="Current weather icon." />
-            <h3>{weather.temp}°C</h3>
-            <h4>{weather.description}</h4>
-            <strong>{weather.city}</strong>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <label>City: </label>
-              <input
-                id="cityName"
-                type="text"
-                placeholder="Enter a City name here."
-              ></input>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <label>Country: </label>
-              <input
-                id="countryName"
-                type="text"
-                placeholder="Enter a Country name here."
-              ></input>
-            </div>
-            <button onClick={handleSearch}>Search</button>
-          </div>
+          <WeatherInfoArea
+            imgSrc={weather.iconSrc}
+            temp={weather.temp}
+            description={weather.description}
+            city={weather.city}
+          />
+          <SearchArea onSearch={search} />
         </CardContent>
       </Card>
     </div>
