@@ -1,9 +1,11 @@
 import React from "react";
+import InputArea from "./InputArea";
 
 export default function SearchArea(props) {
   function handleSearch() {
     const city = document.getElementById("cityName").value;
     props.onSearch(city);
+    document.getElementById("cityName").value = "";
   }
 
   return (
@@ -14,22 +16,16 @@ export default function SearchArea(props) {
         justifyContent: "space-evenly",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <label>City: </label>
-        <input
-          id="cityName"
-          type="text"
-          placeholder="Enter a City name here."
-        ></input>
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <label>Country: </label>
-        <input
-          id="countryName"
-          type="text"
-          placeholder="Enter a Country name here."
-        ></input>
-      </div>
+      <InputArea
+        inputLabel="City:"
+        inputId="cityName"
+        inputPlaceholder="Enter City here..."
+      />
+      <InputArea
+        inputLabel="Country:"
+        inputId="countryName"
+        inputPlaceholder="Enter Country here..."
+      />
       <button onClick={handleSearch}>Search</button>
     </div>
   );
