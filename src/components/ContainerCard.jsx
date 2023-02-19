@@ -34,9 +34,9 @@ export default function ContainerCard() {
   const baseUrl =
     "https://localhost:7061/api/WeatherInformation/getWeatherInfo/";
 
-  function search(city) {
+  function search(city, country) {
     fetch(
-      `${baseUrl}${city}`
+      `${baseUrl}${city}/${country}`
       // , {
       //   headers: {
       //     "Authorization": "Bearer 8b7535b42fe1c551f18028f64e8688f7",
@@ -48,8 +48,9 @@ export default function ContainerCard() {
       .then((data) => {
         const weather = {
           city: data.city,
+          countryCode: data.country,
           temp: data.temp,
-          description: data.description,
+          description: data.description.charAt(0).toUpperCase() + data.description.slice(1),
           iconSrc:
             "http://openweathermap.org/img/wn/" + `${data.icon}` + "@2x.png",
         };
@@ -72,6 +73,7 @@ export default function ContainerCard() {
               temp={weather.temp}
               description={weather.description}
               city={weather.city}
+              countryCode={weather.countryCode}
             />
           )}
           <SearchArea onSearch={search} />
