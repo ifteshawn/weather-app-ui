@@ -6,9 +6,7 @@ export default function App() {
   return (
     <div>
       <Header />
-      <div>
-        <ContainerCard />
-      </div>
+      <ContainerCard />
       <Footer />
     </div>
   );
