@@ -2,9 +2,9 @@ const baseUrl = "https://localhost:7061/api/WeatherInformation/getWeatherInfo/";
 const envApiKeys = process.env.REACT_APP_API_KEYS;
 const weatherApiKeys = envApiKeys.split(",");
 let currentIndex = 0;
-const apiKey = weatherApiKeys[currentIndex];
 
 export async function fetchWeather(city, country) {
+  const apiKey = weatherApiKeys[currentIndex];
   const headers = { "x-api-key": apiKey };
   const url = `${baseUrl}${city}/${country}`;
 
@@ -20,7 +20,6 @@ export async function fetchWeather(city, country) {
       if (currentIndex < weatherApiKeys.length - 1) {
         currentIndex++;
       } else {
-        currentIndex = 0;
         throw new Error(
           "All API keys have reached their request limit. Please wait an hour to make another request."
         );
