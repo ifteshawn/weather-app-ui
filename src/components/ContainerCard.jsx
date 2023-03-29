@@ -6,7 +6,7 @@ import { DotLoader } from "react-spinners";
 import WeatherInfoArea from "./WeatherInfoArea";
 import SearchArea from "./SearchArea";
 import ErrorInfo from "./ErrorInfo";
-import { fetchWeather } from "../utils/WeatherUtils";
+import { fetchWeather } from "../utils/weatherUtils";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,7 +79,7 @@ export default function ContainerCard() {
           )}
           {error !== null && <ErrorInfo message={error.message} />}
           {loading && (
-            <div className="div-response-info">
+            <div data-testid="loading-spinner" className="div-response-info">
               <DotLoader color={"#474e68"} loading={loading} size={80} />
             </div>
           )}

@@ -4,6 +4,7 @@ import "../styles.css";
 export default function WeatherInfoArea(props) {
   return (
     <div
+    data-testid="weather-info-area"
       className="div-response-info"
     >
       <img src={props.imgSrc} alt="Current weather icon." />

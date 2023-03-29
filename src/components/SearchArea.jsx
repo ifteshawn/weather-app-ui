@@ -8,7 +8,8 @@ export default function SearchArea(props) {
   const [country, setCountry] = useState(null);
   const [cityError, setCityError] = useState(false);
   const [countryError, setCountryError] = useState(false);
-  const cityRegex = /^([a-zA-Z\u0080-\u024F]+(?:.|-||'))*[a-zA-Z\u0080-\u024F]*$/;
+  const cityRegex =
+    /^([a-zA-Z\u0080-\u024F]+(?:.|-||'))*[a-zA-Z\u0080-\u024F]*$/;
 
   function handleSearch(e) {
     e.preventDefault();
@@ -20,7 +21,7 @@ export default function SearchArea(props) {
       setCountryError(true);
       return;
     }
-    
+
     if (!cityRegex.test(city)) {
       setCityError(true);
       return;
@@ -65,7 +66,7 @@ export default function SearchArea(props) {
         options={countries}
         autoHighlight
         getOptionLabel={(option) => option.name}
-        getOptionSelected={(option, value) => option.code === value.code}
+        isOptionEqualToValue={(option, value) => option.code === value.code}
         renderOption={(props, option) => (
           <Box
             component="li"
