@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+Weather App Front End
+This Weather App Front End is a web application that allows users to search for weather information by entering a city and country. The app validates the user inputs and sends the user's input to a back end weather service and displays the weather information or error it receives in response. This app has a countries.js file that has a list of all the countries in the world and their respective country codes. The user can select the countries from this list in the drop down list in the UI.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tools required to run the application:
 
-## Available Scripts
+Node.js
+Visual Studio Code
 
-In the project directory, you can run:
+# Installation:
 
-### `npm start`
+Clone the repository to your local machine.
+In a terminal, navigate to the project directory.
+Run "npm install" to install all dependencies.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Configuration
+This app has a .env file that has 5 API keys it can use to authenticate itself to the back end weather service by including the keys in the request header. After an API key has reached it request limit, the app switches to the next API key to let the user allow sending requests again.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Usage:
 
-### `npm test`
+Open the project directory in Visual Studio Code.
+In a terminal, navigate to the project directory.
+Run "npm start" to start the application.
+This should automatically open the open browser with the URL: "http://localhost:3000".
+Enter a city and country in the search bar and click the "Search" button.
+The app will send the user's input to the back end weather service and display the weather information it receives in response.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Note:
 
-### `npm run build`
+You'll need to have the weather App back end service running in order to fetch weather information from the front end.
+Link to back end repo: https://github.com/ifteshawn/WeatherApi
+Please follow instructions in the back end repo readme file to install and run the back end.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Testing:
+To run the react testing scripts, run "npm test" in the terminal.
