@@ -1,4 +1,4 @@
-Weather App Front End
+### Weather App Front End
 This Weather App Front End is a web application that allows users to search for weather information by entering a city and country. The app validates the user inputs and sends the user's input to a back end weather service and displays the weather information or error it receives in response. This app has a countries.js file that has a list of all the countries in the world and their respective country codes. The user can select the countries from this list in the drop down list in the UI.
 
 # Tools required to run the application:
